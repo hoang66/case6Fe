@@ -81,13 +81,12 @@
 
       <!-- Single Catagory -->
       <div class="single-products-catagory clearfix" *ngFor="let p of products">
-        <a href="shop.html">
+        <a [routerLink]="'/detail/'+p.id">
           <img src="{{p.img}}" alt="">
           <!-- Hover Content -->
           <div class="hover-content">
             <div class="line"></div>
             <p>{{p.nameSt}}</p>
-<!--            <p>{{p.img}}</p>-->
             <p>{{p.price}}</p>
             <p>{{p.status}}</p>
             <p>{{p.description}}</p>

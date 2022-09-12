@@ -12,7 +12,11 @@ export class ProductService {
   constructor(private http:HttpClient) { }
 
   getAll(): Observable<Product[]> {
-    return this.http.get<Product[]>("http://localhost:8082/products");
+    return this.http.get<Product[]>("http://localhost:8083/products");
+  }
+
+  findById(id: number): Observable<Product> {
+    return this.http.get<Product>("http://localhost:8083/products/" +id);
   }
 
 }
