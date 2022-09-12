@@ -13,7 +13,7 @@ export class OderService {
 
   constructor(private http:HttpClient) { }
 
-  getOderByuser(): Observable<OderProduct[]> {
-    return this.http.get<OderProduct[]>("http://localhost:8080/order/User/{{id}}");
+  getOderByuser(id: number): Observable<OderProduct[]> {
+    return this.http.get<OderProduct[]>("http://localhost:8080/order/User/" +id);
   }
 }
