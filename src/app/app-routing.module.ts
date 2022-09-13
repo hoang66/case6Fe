@@ -7,7 +7,7 @@ import {ShowProductDTComponent} from "./show-product-dt/show-product-dt.componen
 const routes: Routes = [
   {path: '', component: ShowProductComponent},
   {
-    path:'showcart/:id',component:ShowCartComponent
+    path:'showcart',component:ShowCartComponent
   },
   {path: 'detail/:id', component: ShowProductDTComponent},
 

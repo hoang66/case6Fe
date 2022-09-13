@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../service/product.service";
 import {Product} from "../model/Product";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-show-product-dt',
@@ -10,8 +10,13 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ShowProductDTComponent implements OnInit {
   product!: Product
+  products: Product[] = [];
 
-  constructor(private route: ActivatedRoute, private productService: ProductService) {
+
+  constructor(private route: ActivatedRoute, private productService: ProductService, private router: Router) {
+    // @ts-ignore
+    this.products = JSON.parse(localStorage.getItem("cart"));
+    console.log("hai" + this.products)
   }
 
   ngOnInit() {
@@ -22,4 +27,35 @@ export class ShowProductDTComponent implements OnInit {
       })
     });
   }
+
+  create(): void {
+    this.route.params.subscribe(paramsId => {
+
+      let id = paramsId?.['id'];
+      this.productService.findById(id).subscribe((data: Product) => {
+        let a = true;
+        if (this.products == null) {
+          this.products = [];
+          this.products.push(data);
+        } else {
+          for (let i = 0; i < this.products.length; i++) {
+            if (id == this.products[i].id) {
+              a = true
+              break;
+            } else {
+              a = false;
+            }
+          }
+
+          if (a == false) {
+            this.products.push(data);
+          }
+        }
+        localStorage.setItem("cart", JSON.stringify(this.products));
+        this.router.navigate(["/showcart"])
+      })
+    });
+  }
+
+
 }

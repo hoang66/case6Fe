@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {OderService} from "../service/OderService";
 import {OderProduct} from "../model/OderProduct";
 import {ActivatedRoute} from "@angular/router";
+import {Product} from "../model/Product";
 
 @Component({
   selector: 'app-show-cart',
@@ -13,14 +14,10 @@ export class ShowCartComponent implements OnInit {
   }
 
   oderProducts: OderProduct[] = [];
-
+  products: Product[] = [];
   ngOnInit(): void {
-    this.route.params.subscribe(paramsId => {
-      let id = paramsId?.['id'];
-    this.oderService.getOderByuser(id).subscribe((data) => {
-      this.oderProducts = data;
-      console.log(data)
-    })
-    });
+    // @ts-ignore
+    this.products = JSON.parse(localStorage.getItem("cart"));
+    console.log("hoang" + this.products)
   }
 }
