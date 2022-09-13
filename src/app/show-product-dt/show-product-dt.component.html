@@ -1,4 +1,4 @@
-<!-- Search Wrapper Area Start -->
+
 <div class="search-wrapper section-padding-100">
   <div class="search-close">
     <i class="fa fa-close" aria-hidden="true"></i>
@@ -9,7 +9,7 @@
         <div class="search-content">
           <form action="#" method="get">
             <input type="search" name="search" id="search" placeholder="Type your keyword...">
-            <button type="submit"><img src="/assets/img/core-img/search.png" alt=""></button>
+            <button type="submit"><img src="assets/img/core-assets/img/search.png" alt=""></button>
           </form>
         </div>
       </div>
@@ -25,7 +25,7 @@
   <div class="mobile-nav">
     <!-- Navbar Brand -->
     <div class="amado-navbar-brand">
-      <a href="index.html"><img src="/assets/img/core-img/logo.png" alt=""></a>
+      <a href="index.html"><img src="assets/img/core-assets/img/logo.png" alt=""></a>
     </div>
     <!-- Navbar Toggler -->
     <div class="amado-navbar-toggler">
@@ -41,7 +41,7 @@
     </div>
     <!-- Logo -->
     <div class="logo">
-      <a href="index.html"><img src="/assets/img/core-img/logo.png" alt=""></a>
+      <a href="index.html"><img src="assets/img/core-assets/img/logo.png" alt=""></a>
     </div>
     <!-- Amado Nav -->
     <nav class="amado-nav">
@@ -59,7 +59,11 @@
       <a href="#" class="btn amado-btn active">New this week</a>
     </div>
     <!-- Cart Menu -->
-
+    <div class="cart-fav-search mb-100">
+      <a href="cart.html" class="cart-nav"><img src="assets/img/core-assets/img/cart.png" alt=""> Cart <span>(0)</span></a>
+      <a href="#" class="fav-nav"><img src="assets/img/core-assets/img/favorites.png" alt=""> Favourite</a>
+      <a href="#" class="search-nav"><img src="assets/img/core-assets/img/search.png" alt=""> Search</a>
+    </div>
     <!-- Social Button -->
     <div class="social-info d-flex justify-content-between">
       <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
@@ -88,53 +92,29 @@
       </div>
 
       <div class="row">
+<!--        lề trái-->
         <div class="col-12 col-lg-7">
           <div class="single_product_thumb">
             <div id="product_details_slider" class="carousel slide" data-ride="carousel">
-<!--              <ol class="carousel-indicators">-->
-<!--                <li class="active" data-target="#product_details_slider" data-slide-to="0" style="background-image: url(/assets/img/product-img/pro-big-1.jpg);">-->
-<!--                </li>-->
-<!--                <li data-target="#product_details_slider" data-slide-to="1" style="background-image: url(/assets/img/product-img/pro-big-2.jpg);">-->
-<!--                </li>-->
-<!--                <li data-target="#product_details_slider" data-slide-to="2" style="background-image: url(/assets/img/product-img/pro-big-3.jpg);">-->
-<!--                </li>-->
-<!--                <li data-target="#product_details_slider" data-slide-to="3" style="background-image: url(/assets/img/product-img/pro-big-4.jpg);">-->
-<!--                </li>-->
-<!--              </ol>-->
-<!--              <div class="carousel-inner">-->
-<!--                <div class="carousel-item active">-->
-                  <a class="gallery_img" href="/assets/img/product-img/pro-big-1.jpg">
-<!--                    <img class="d-block w-100" src="/assets/img/product-img/pro-big-1.jpg" alt="First slide">-->
-                    <img class="d-block w-100" src="{{product?.img}}" alt="First slide">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <a class="gallery_img" href="{{product.img}}">
+                    <img class="d-block w-100" src="{{product.img}}" alt="First slide">
                   </a>
                 </div>
-<!--                <div class="carousel-item">-->
-<!--                  <a class="gallery_img" href="/assets/img/product-img/pro-big-2.jpg">-->
-<!--                    <img class="d-block w-100" src="/assets/img/product-img/pro-big-2.jpg" alt="Second slide">-->
-<!--                  </a>-->
-<!--                </div>-->
-<!--                <div class="carousel-item">-->
-<!--                  <a class="gallery_img" href="/assets/img/product-img/pro-big-3.jpg">-->
-<!--                    <img class="d-block w-100" src="/assets/img/product-img/pro-big-3.jpg" alt="Third slide">-->
-<!--                  </a>-->
-<!--                </div>-->
-<!--                <div class="carousel-item">-->
-<!--                  <a class="gallery_img" href="/assets/img/product-img/pro-big-4.jpg">-->
-<!--                    <img class="d-block w-100" src="/assets/img/product-img/pro-big-4.jpg" alt="Fourth slide">-->
-<!--                  </a>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
+              </div>
+            </div>
+          </div>
+        </div>
+<!--       lề phải-->
         <div class="col-12 col-lg-5">
           <div class="single_product_desc">
             <!-- Product Meta Data -->
             <div class="product-meta-data">
               <div class="line"></div>
-              <p class="product-price">{{product?.price}}</p>
+              <p class="product-price">{{product.price}} VND</p>
               <a href="product-details.html">
-                <h6>{{product?.nameSt}}</h6>
+                <h6>{{product.nameSt}}</h6>
               </a>
               <!-- Ratings & Review -->
               <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">
@@ -146,7 +126,7 @@
                   <i class="fa fa-star" aria-hidden="true"></i>
                 </div>
                 <div class="review">
-                  <a href="#">{{product?.description}}</a>
+                  <a href="#">Write A Review</a>
                 </div>
               </div>
               <!-- Avaiable -->
@@ -154,10 +134,11 @@
             </div>
 
             <div class="short_overview my-5">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim?</p>
+              <p>{{product.description}}</p>
             </div>
 
             <!-- Add to Cart Form -->
+            <form class="cart clearfix" method="post">
               <div class="cart-btn d-flex mb-50">
                 <p>Qty</p>
                 <div class="quantity">
@@ -167,6 +148,7 @@
                 </div>
               </div>
               <button type="submit" name="addtocart" value="5" class="btn amado-btn" (click)="create()">Add to cart</button>
+            </form>
 
           </div>
         </div>
@@ -210,9 +192,9 @@
       <div class="col-12 col-lg-4">
         <div class="single_widget_area">
           <!-- Logo -->
-<!--          <div class="footer-logo mr-50">-->
-<!--            <a href="index.html"><img src="img/core-img/logo2.png" alt=""></a>-->
-<!--          </div>-->
+          <div class="footer-logo mr-50">
+            <a href="index.html"><img src="assets/img/core-assets/img/logo2.png" alt=""></a>
+          </div>
           <!-- Copywrite Text -->
           <p class="copywrite"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> & Re-distributed by <a href="https://themewagon.com/" target="_blank">Themewagon</a>
@@ -238,7 +220,7 @@
                     <a class="nav-link" href="product-details.html">Product</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" [routerLink]="'/showcart/'" >Cart</a>
+                    <a class="nav-link" href="cart.html">Cart</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="checkout.html">Checkout</a>
