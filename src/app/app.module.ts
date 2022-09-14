@@ -4,10 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ShowProductComponent } from './show-product/show-product.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { ShowProductDTComponent } from './show-product-dt/show-product-dt.component';
 import { ShowCartComponent } from './show-cart/show-cart.component';
-import {FormsModule} from "@angular/forms";
+import { LoginComponent } from './login/login/login.component';
+import { RegisterComponent } from './login/register/register.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {AuthInterceptor} from "./auth.interceptor";
+
 
 
 @NgModule({
@@ -15,15 +19,23 @@ import {FormsModule} from "@angular/forms";
     AppComponent,
     ShowProductComponent,
     ShowProductDTComponent,
-    ShowCartComponent
+    ShowCartComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
