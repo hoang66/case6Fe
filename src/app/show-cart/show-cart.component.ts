@@ -14,14 +14,17 @@ export class ShowCartComponent implements OnInit {
   constructor(private route: ActivatedRoute, private oderService: OderService, private router: Router) {
   }
 
-  oderProducts: OderProduct[] = [];
+  oder!: OderProduct;
   products: Product[] = [];
+  user: string = "";
+  productOder: Product[] = [];
 
   ngOnInit(): void {
     // @ts-ignore
     this.products = JSON.parse(localStorage.getItem("cart"));
     console.log("hoang" + this.products)
   }
+
 
   delete(id: any): void {
     // @ts-ignore
@@ -37,10 +40,4 @@ export class ShowCartComponent implements OnInit {
     this.router.navigate(["/showcart"])
   }
 
-  // createOder(): void {
-  //   // @ts-ignore
-  //   this.products = JSON.parse(localStorage.getItem("cart"));
-  //   let
-  //
-  // }
 }
