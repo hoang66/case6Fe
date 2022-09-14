@@ -7,6 +7,7 @@ import { ShowProductComponent } from './show-product/show-product.component';
 import {HttpClientModule} from "@angular/common/http";
 import { ShowProductDTComponent } from './show-product-dt/show-product-dt.component';
 import { ShowCartComponent } from './show-cart/show-cart.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ShowCartComponent } from './show-cart/show-cart.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

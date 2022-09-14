@@ -80,6 +80,8 @@
         <div class="col-12 col-lg-8">
           <div class="cart-title mt-50">
             <h2>Shopping Cart</h2>
+            <button type="button" class="btn btn-primary">CheckoutAll</button>
+            <br>
           </div>
 
           <div class="cart-table clearfix">
@@ -90,8 +92,6 @@
                 <th>Name</th>
                 <th>Price</th>
                 <th>Quantity</th>
-                <th>Delete</th>
-                <th>Chekout</th>
               </tr>
               </thead>
               <tbody *ngFor="let o of products">
@@ -120,11 +120,12 @@
                     </div>
                   </div>
                 </td>
-                <td><button type="button" class="btn btn-danger" (click)="delete(o.id)">Delete</button></td>
+
               </tr>
               <td>
                 <button type="button" class="btn btn-success">Chekout</button>
               </td>
+              <td><button type="button" class="btn btn-danger" (click)="delete(o.id)">Delete</button></td>
               </tbody>
             </table>
           </div>
