@@ -34,44 +34,42 @@ export class ShowProductDTComponent implements OnInit {
 
 
   create(): void {
-    // @ts-ignore
-    if (this.user == "") {
-      console.log("vao")
-      alert("xin nhập tên đăng nhập")
-      return;
-    } else {
-      this.route.params.subscribe(paramsId => {
-        let id = paramsId?.['id'];
-        console.log(id)
-        this.productService.findById(id).subscribe((data: Product) => {
-          let a = true;
-          console.log(this.products)
-          if (this.products == null) {
-            this.products = [];
-            this.products.push(data);
-          }
-
-          if (this.products != []) {
-            for (let i = 0; i < this.products.length; i++) {
-              if (id == this.products[i].id) {
-                // this.products[i].quantity= this.products[i].quantity+1;
-                localStorage.setItem("cart", JSON.stringify(this.products));
-                localStorage.setItem("user", JSON.stringify(this.user));
-                this.router.navigate(["/showcart"])
-                return
-              }
-            }
-
-          }
-
+    // // @ts-ignore
+    // if (this.user == "") {
+    //   console.log("vao")
+    //   alert("xin nhập tên đăng nhập")
+    //   return;
+    // } else {
+    this.route.params.subscribe(paramsId => {
+      let id = paramsId?.['id'];
+      console.log(id)
+      this.productService.findById(id).subscribe((data: Product) => {
+        let a = true;
+        console.log(this.products)
+        if (this.products == null) {
+          this.products = [];
           this.products.push(data);
+        }
+
+        if (this.products != []) {
+          for (let i = 0; i < this.products.length; i++) {
+            if (id == this.products[i].id) {
+              // this.products[i].quantity= this.products[i].quantity+1;
+              localStorage.setItem("cart", JSON.stringify(this.products));
+              localStorage.setItem("user", JSON.stringify(this.user));
+              this.router.navigate(["/showcart"])
+              return
+            }
+          }
+
+        }
+
+        this.products.push(data);
 
 
-          localStorage.setItem("cart", JSON.stringify(this.products));
-          this.router.navigate(["/showcart"])
-        })
-      });
-    }
+        localStorage.setItem("cart", JSON.stringify(this.products));
+        this.router.navigate(["/showcart"])
+      })
+    });
   }
-
 }
