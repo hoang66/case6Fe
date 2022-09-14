@@ -11,7 +11,7 @@ import {Product} from "../model/Product";
 })
 export class ShowCartComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private oderService: OderService,private router: Router) {
+  constructor(private route: ActivatedRoute, private oderService: OderService, private router: Router) {
   }
 
   oderProducts: OderProduct[] = [];
@@ -37,5 +37,10 @@ export class ShowCartComponent implements OnInit {
     this.router.navigate(["/showcart"])
   }
 
-
+  // createOder(): void {
+  //   // @ts-ignore
+  //   this.products = JSON.parse(localStorage.getItem("cart"));
+  //   let
+  //
+  // }
 }

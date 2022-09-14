@@ -1,21 +1,18 @@
 export class OderProduct {
-  id?: number
-  quantity?: number
-  img?: string
-  price?: number
-  priceAll?: number
-  description?: string
-  user: any
+  id: number
+  name: string
+  quantity: number
+  priceAll: number
+  appUser: any
   product: any
 
-  constructor(id: number, quantity: number, img: string, price: number, priceAll: number, description: string, user: any, product: any) {
+
+  constructor(id: number, name: string, quantity: number, priceAll: number, appUser: any, product: any) {
     this.id = id;
+    this.name = name;
     this.quantity = quantity;
-    this.img = img;
-    this.price = price;
     this.priceAll = priceAll;
-    this.description = description;
-    this.user = user;
+    this.appUser = appUser;
     this.product = product;
   }
 }
