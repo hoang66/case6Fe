@@ -139,17 +139,7 @@
 
             <!-- Add to Cart Form -->
             <form class="cart clearfix">
-              <div class="cart-btn d-flex mb-50">
-                <p>Qty</p>
-                <div class="quantity">
-                  <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-caret-down" aria-hidden="true"></i></span>
-                  <input type="number" class="qty-text" id="qty" step="1" min="1" max="{{product.amount}}}" name="qualitydetail">
-                  <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-caret-up" aria-hidden="true"></i></span>
-                </div>
-              </div>
               <button type="button" name="addtocart" value="5" class="btn amado-btn" (click)="create()">Add to cart</button>
-<!--           <br>-->
-<!--              <input name="user" placeholder="nhập tên đăng nhập" [(ngModel)]="user" >-->
             </form>
           </div>
         </div>

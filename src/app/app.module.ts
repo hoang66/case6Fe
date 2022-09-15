@@ -9,7 +9,7 @@ import { ShowProductDTComponent } from './show-product-dt/show-product-dt.compon
 import { ShowCartComponent } from './show-cart/show-cart.component';
 import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './login/register/register.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthInterceptor} from "./auth.interceptor";
 
 import { ShopComponent } from './shop/shop.component';
@@ -30,7 +30,8 @@ import { ShopComponent } from './shop/shop.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     {
