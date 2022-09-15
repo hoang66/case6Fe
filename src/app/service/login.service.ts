@@ -10,8 +10,8 @@ export class LoginService {
 
   constructor(private http:HttpClient) { }
 
-  login(user: any): Observable<any>{
-    return this.http.post<any>("http://localhost:8083/login",user)
+  login(user: any): Observable<UserToken>{
+    return this.http.post<UserToken>("http://localhost:8083/login",user)
   }
 
   register(user: any): Observable<any>{

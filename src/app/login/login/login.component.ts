@@ -18,14 +18,14 @@ export class LoginComponent implements OnInit {
 
   loginForm = new FormGroup({
     username: new FormControl("", Validators.required),
-    password: new FormControl("", Validators.required)
+    pass: new FormControl("", Validators.required)
 
   })
 
   login(){
     this.loginService.login(this.loginForm.value).subscribe((data)=>{
       this.loginService.setToken(data.token);
-      this.loginService.setUserToken(data.token);
+      this.loginService.setUserToken(data);
       this.router.navigate([""])
     })
   }

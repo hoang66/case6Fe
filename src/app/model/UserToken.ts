@@ -1,5 +1,6 @@
 import {Role} from "./role";
 
+
 export class UserToken{
   id: number;
   name: string;
