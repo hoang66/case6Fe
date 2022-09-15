@@ -48,9 +48,9 @@
     <nav class="amado-nav">
       <ul>
         <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="product-details.html">Product</a></li>
-        <li><a href="cart.html">Cart</a></li>
+        <li><a [routerLink]="'/shop/'">Shop</a></li>
+        <li><a href="product-details.html" >Product</a></li>
+        <li><a [routerLink]="'/showcart/'">Cart</a></li>
         <li><a href="checkout.html">Checkout</a></li>
       </ul>
     </nav>
@@ -72,6 +72,31 @@
       <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
       <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
     </div>
+    <script>
+      $(document).ready(function () {
+        // Activate tooltip
+        $('[data-toggle="tooltip"]').tooltip();
+
+        // Select/Deselect checkboxes
+        var checkbox = $('table tbody input[type="checkbox"]');
+        $("#selectAll").click(function () {
+          if (this.checked) {
+            checkbox.each(function () {
+              this.checked = true;
+            });
+          } else {
+            checkbox.each(function () {
+              this.checked = false;
+            });
+          }
+        });
+        checkbox.click(function () {
+          if (!this.checked) {
+            $("#selectAll").prop("checked", false);
+          }
+        });
+      });
+    </script>
   </header>
   <!-- Header Area End -->
 
@@ -86,14 +111,12 @@
           <!-- Hover Content -->
           <div class="hover-content">
             <div class="line"></div>
-            <p>{{p.nameSt}}</p>
-            <p>{{p.price}}</p>
-            <p>{{p.status}}</p>
-            <p>{{p.description}}</p>
-            <p>{{p.amount}}</p>
+            <p>{{p.price}} VND</p>
+            <h3>{{p.nameSt}}</h3>
           </div>
         </a>
       </div>
+
     </div>
   </div>
   <!-- Product Catagories Area End -->
@@ -160,7 +183,7 @@
                     <a class="nav-link" href="product-details.html">Product</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="cart.html">Cart</a>
+                    <a class="nav-link" href="cart.html" >Cart</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="checkout.html">Checkout</a>

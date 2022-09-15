@@ -9,14 +9,25 @@ import {Product} from "../model/Product";
 })
 export class ProductService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  getAll(): Observable<Product[]> {
-    return this.http.get<Product[]>("http://localhost:8083/products");
+  getAll(page: number): Observable<Product[]> {
+    return this.http.get<Product[]>("http://localhost:8084/products/page/"+page);
   }
 
   findById(id: number): Observable<Product> {
-    return this.http.get<Product>("http://localhost:8083/products/" +id);
+    return this.http.get<Product>("http://localhost:8084/products/" + id);
+  }
+
+  findByIdCata(id: number): Observable<Product[]> {
+    return this.http.get<Product[]>(" http://localhost:8084/products/catagorie/" + id);
+  }
+
+  findByIdS(nameSt: any): Observable<Product[]> {
+    return this.http.get<Product[]>("http://localhost:8084/products/product/" + nameSt);
+
   }
 
 }
+

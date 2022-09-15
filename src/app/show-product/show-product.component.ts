@@ -11,11 +11,10 @@ export class ShowProductComponent implements OnInit {
 
   constructor(private productService:ProductService) { }
   products: Product[] = [];
-
+  page:number=1
   ngOnInit(): void {
-    this.productService.getAll().subscribe((data)=> {
+    this.productService.getAll(this.page).subscribe((data)=> {
       this.products = data;
     })
   }
-
 }
