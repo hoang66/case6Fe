@@ -14,7 +14,7 @@ export class OderService {
   constructor(private http:HttpClient) { }
 
   getOderByuser(id: number): Observable<OderProduct[]> {
-    return this.http.get<OderProduct[]>("http://localhost:8080/order/User/" +id);
+    return this.http.get<OderProduct[]>("http://localhost:8083/order/User/" +id);
 
 
   }
