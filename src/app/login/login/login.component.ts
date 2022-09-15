@@ -9,8 +9,9 @@ import {Router} from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  param: string = "";
 
-  constructor(private loginService: LoginService ,private  router: Router) {
+  constructor(private loginService: LoginService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -22,11 +23,15 @@ export class LoginComponent implements OnInit {
 
   })
 
-  login(){
-    this.loginService.login(this.loginForm.value).subscribe((data)=>{
+  login() {
+    this.loginService.login(this.loginForm.value).subscribe((data) => {
       this.loginService.setToken(data.token);
       this.loginService.setUserToken(data);
-      this.router.navigate([""])
+      // @ts-ignore
+      this.param = JSON.parse(localStorage.getItem("param"));
+      console.log("login" + this.param)
+      // @ts-ignore
+      this.router.navigate(["" + this.param])
     })
   }
 }

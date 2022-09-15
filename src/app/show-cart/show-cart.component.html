@@ -112,8 +112,7 @@
                       <span class="qty-minus"
                             onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
                         class="fa fa-minus" aria-hidden="true"></i></span>
-                      <input type="number" class="qty-text" id="qty" step="1" min="1" max="300" name="quantity"
-                             value="1">
+                      <input type="number" class="qty-text" id="qty" step="1" min="1" max="300" >
                       <span class="qty-plus"
                             onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i
                         class="fa fa-plus" aria-hidden="true"></i></span>
@@ -136,11 +135,9 @@
           <div class="cart-summary">
             <h5>Cart Total</h5>
             <ul class="summary-table">
-              <li><span>Number of products</span> <span>{{productOder.length}}</span></li>
-              <li><span>Name ProductAll:</span> <span *ngFor="let p of productOder">{{p.nameSt}}</span></li>
-              <li><span>total:</span> <span>{{oder.priceAll}}</span></li>
-              <br>
-              <input name="user" placeholder="nhập tên đăng nhập" [(ngModel)]="user">
+              <li><span>Number of products</span> <span>{{products.length}}</span></li>
+              <li><span>Name ProductAll:</span> <span *ngFor="let p of products">{{p.nameSt}}</span></li>
+              <li><span>total:</span> <span>{{oder.priceAll}} VND </span></li>
             </ul>
             <div class="cart-btn mt-100">
               <a href="cart.html" class="btn amado-btn w-100">Checkout</a>

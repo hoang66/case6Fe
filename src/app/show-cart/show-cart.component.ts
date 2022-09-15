@@ -3,6 +3,7 @@ import {OderService} from "../service/OderService";
 import {OderProduct} from "../model/OderProduct";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Product} from "../model/Product";
+import {UserToken} from "../model/UserToken";
 
 @Component({
   selector: 'app-show-cart',
@@ -14,15 +15,26 @@ export class ShowCartComponent implements OnInit {
   constructor(private route: ActivatedRoute, private oderService: OderService, private router: Router) {
   }
 
-  oder!: OderProduct;
+  usertoken!: UserToken;
+  oder: OderProduct = new OderProduct();
   products: Product[] = [];
   user: string = "";
-  productOder: Product[] = [];
+  qualitydetailcart: any;
+  priceAll: any;
+
 
   ngOnInit(): void {
     // @ts-ignore
+    this.usertoken = JSON.parse(localStorage.getItem("userToken"));
+    // @ts-ignore
     this.products = JSON.parse(localStorage.getItem("cart"));
-    console.log("hoang" + this.products)
+    this.oder.product = this.products;
+    this.oder.priceAll = 0;
+    for (let i = 0; i < this.products.length; i++) {
+      this.oder.priceAll += this.products[i].price;
+    }
+    this.oder.appUser = this.usertoken.id;
+    this.oder.name = this.usertoken.name;
   }
 
 
@@ -35,9 +47,7 @@ export class ShowCartComponent implements OnInit {
         break;
       }
     }
-    console.log(this.products)
     localStorage.setItem("cart", JSON.stringify(this.products));
-    this.router.navigate(["/showcart"])
+    location.reload();
   }
-
 }
