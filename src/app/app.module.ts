@@ -13,6 +13,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthInterceptor} from "./auth.interceptor";
 
 import { ShopComponent } from './shop/shop.component';
+import { ShowProductAdminComponent } from './admin/show-product-admin/show-product-admin.component';
 
 
 
@@ -24,7 +25,8 @@ import { ShopComponent } from './shop/shop.component';
     ShowCartComponent,
     LoginComponent,
     RegisterComponent,
-    ShopComponent
+    ShopComponent,
+    ShowProductAdminComponent
   ],
   imports: [
     BrowserModule,

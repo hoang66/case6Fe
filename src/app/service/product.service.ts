@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {Product} from "../model/Product";
@@ -26,8 +25,12 @@ export class ProductService {
 
   findByIdS(nameSt: any): Observable<Product[]> {
     return this.http.get<Product[]>("http://localhost:8083/products/product/" + nameSt);
-
   }
+
+  updateProduct(id: number): Observable<Product[]> {
+    return this.http.get<Product[]>("http://localhost:8083/products/editproduct/" + id);
+  }
+
 
 }
 

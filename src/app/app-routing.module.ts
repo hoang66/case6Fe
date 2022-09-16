@@ -6,6 +6,7 @@ import {ShowProductDTComponent} from "./show-product-dt/show-product-dt.componen
 import {LoginComponent} from "./login/login/login.component";
 import {RegisterComponent} from "./login/register/register.component";
 import {ShopComponent} from "./shop/shop.component";
+import {ShowProductAdminComponent} from "./admin/show-product-admin/show-product-admin.component";
 
 // @ts-ignore
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'shop', component: ShopComponent},
   {path: 'shop/:id', component: ShopComponent},
   {path: 'product/:nameSt', component: ShopComponent},
+  {path: 'showproductadmin', component: ShowProductAdminComponent},
 
 ];
 
