@@ -46,7 +46,7 @@ export class ShowProductDTComponent implements OnInit {
         data.quantity = this.qualitydetail
         if (this.usertoken == null) {
           alert("bạn cần đăng nhập tài khoản")
-          this.param =("/detail/" +id)
+          this.param = ("/detail/" + id)
           console.log(this.param)
           localStorage.setItem("param", JSON.stringify(this.param));
           this.router.navigate(["/login"])
@@ -54,6 +54,9 @@ export class ShowProductDTComponent implements OnInit {
           if (this.products == null) {
             this.products = [];
             this.products.push(data);
+            for (let i = 0; i < this.products.length; i++) {
+              this.products[i].quantity = 1;
+            }
           }
 
           if (this.products != []) {
@@ -65,7 +68,12 @@ export class ShowProductDTComponent implements OnInit {
               }
             }
           }
+
+          for (let i = 0; i < this.products.length; i++) {
+            this.products[i].quantity = 1;
+          }
           this.products.push(data)
+          // @ts-ignore
           localStorage.setItem("cart", JSON.stringify(this.products));
           this.router.navigate(["/showcart"])
         }

@@ -1,8 +1,9 @@
 export class OderProduct {
   id!: number
-  name!: string
   quantity!: number
   priceAll!: number
+  adress!: string
+  date!: any
   appUser: any
   product: any
 

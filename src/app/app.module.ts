@@ -12,6 +12,9 @@ import { RegisterComponent } from './login/register/register.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthInterceptor} from "./auth.interceptor";
 
+import { ShopComponent } from './shop/shop.component';
+import { ShowcheckoutComponent } from './showcheckout/showcheckout.component';
+
 
 
 @NgModule({
@@ -21,7 +24,9 @@ import {AuthInterceptor} from "./auth.interceptor";
     ShowProductDTComponent,
     ShowCartComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ShopComponent,
+    ShowcheckoutComponent
   ],
   imports: [
     BrowserModule,

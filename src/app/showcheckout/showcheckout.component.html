@@ -9,7 +9,7 @@
         <div class="search-content">
           <form action="#" method="get">
             <input type="search" name="search" id="search" placeholder="Type your keyword...">
-            <button type="submit"><img src="img/core-img/search.png" alt=""></button>
+            <button type="submit"><img src="assets/img/core-img/search.png" alt=""></button>
           </form>
         </div>
       </div>
@@ -25,7 +25,7 @@
   <div class="mobile-nav">
     <!-- Navbar Brand -->
     <div class="amado-navbar-brand">
-      <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+      <a href="index.html"><img src="assets/img/core-img/logo.png" alt=""></a>
     </div>
     <!-- Navbar Toggler -->
     <div class="amado-navbar-toggler">
@@ -41,7 +41,7 @@
     </div>
     <!-- Logo -->
     <div class="logo">
-      <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+      <a href="index.html"><img src="assets/img/core-img/logo.png" alt=""></a>
     </div>
     <!-- Amado Nav -->
     <nav class="amado-nav">
@@ -49,8 +49,8 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="shop.html">Shop</a></li>
         <li><a href="product-details.html">Product</a></li>
-        <li class="active"><a href="cart.html">Cart</a></li>
-        <li><a href="checkout.html">Checkout</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li class="active"><a href="checkout.html">Checkout</a></li>
       </ul>
     </nav>
     <!-- Button Group -->
@@ -60,9 +60,9 @@
     </div>
     <!-- Cart Menu -->
     <div class="cart-fav-search mb-100">
-      <a href="cart.html" class="cart-nav"><img src="img/core-img/cart.png" alt=""> Cart <span>(0)</span></a>
-      <a href="#" class="fav-nav"><img src="img/core-img/favorites.png" alt=""> Favourite</a>
-      <a href="#" class="search-nav"><img src="img/core-img/search.png" alt=""> Search</a>
+      <a href="cart.html" class="cart-nav"><img src="assets/img/core-img/cart.png" alt=""> Cart <span>(0)</span></a>
+      <a href="#" class="fav-nav"><img src="assets/img/core-img/favorites.png" alt=""> Favourite</a>
+      <a href="#" class="search-nav"><img src="assets/img/core-img/search.png" alt=""> Search</a>
     </div>
     <!-- Social Button -->
     <div class="social-info d-flex justify-content-between">
@@ -73,93 +73,39 @@
     </div>
   </header>
   <!-- Header Area End -->
-
-  <div class="cart-table-area section-padding-100">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12 col-lg-8">
-          <div class="cart-title mt-50">
-            <h2>Shopping Cart</h2>
-            <button type="button" class="btn btn-primary">CheckoutAll</button>
-            <br>
-          </div>
-
-          <div class="cart-table clearfix">
-            <table class="table table-responsive">
-              <thead>
-              <tr>
-                <th></th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-              </tr>
-              </thead>
-              <tbody *ngFor="let o of products; index as i">
-              <tr>
-                <td class="cart_product_img">
-                  <a href="#"><img src="{{o.img}}" alt="Product"></a>
-                </td>
-                <td class="cart_product_desc">
-                  <h5>{{o.nameSt}}</h5>
-                </td>
-                <td class="price">
-                  <span>{{o.price}}</span>
-                </td>
-                <td class="qty">
-                  <div class="qty-btn d-flex">
-                    <p>Qty</p>
-                    <div class="quantity">
-                      <span class="qty-minus"
-                            (click)="down(i)"><i
-                        class="fa fa-minus" aria-hidden="true"></i></span>
-                      <input type="number" class="qty-text" [id]="'qty' + i" step="1" min="1" max="300" value="1">
-                      <span class="qty-plus"
-                            (click)="up(i)"><i
-                        class="fa fa-plus" aria-hidden="true"></i></span>
-                    </div>
-                  </div>
-                </td>
-
-              </tr>
-              <td>
-                <label class="container">
-                  <!--                  <input type="checkbox"  checked="checked"  [id]= "'checkbox' + i"  (click)="checkbox(i)">-->
-                  <span class="checkmark"></span>
-                </label>
-              </td>
-              <td>
-                <button type="button" class="btn btn-success">Chekout</button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-danger" (click)="delete(o.id)">Delete</button>
-              </td>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="col-12 col-lg-4">
-          <form [formGroup]="FormOder" (ngSubmit)="checkOut()">
-          <div class="cart-summary">
-            <h5>Cart Total</h5>
-            <ul class="summary-table">
-              <li><span>Name Customer:</span> <span>{{this.usertoken.username}}</span></li>
-              <li><span>Number of products</span> <span>{{this.oder.quantity}}</span></li>
-              <li><span>Name ProductAll:</span> <span *ngFor="let p of products ; index as i">{{p.nameSt}}
-                ({{oder.product[i].quantity}})</span></li>
-              <li><span>Adress:</span> <span ><input id="adress" formControlName="adress"></span></li>
-              <li><span>Date:</span> <span>{{oder.date}}</span></li>
-              <li><span>total:</span> <span>{{oder.priceAll}} VND </span></li>
-            </ul>
-            <div class="cart-btn mt-100" >
-<!--              <a class="btn amado-btn w-100" (click)="checkOut()">Checkout</a>-->
-              <input type="submit" value="CheckOut" class="btn amado-btn w-100">
-            </div>
-          </div>
-            </form>
-        </div>
-      </div>
-    </div>
+  <div class="cart-table clearfix">
+    <table class="table table-responsive">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Adress</th>
+        <th>Price_all</th>
+        <th>Date</th>
+        <th>Delete</th>
+      </tr>
+      </thead>
+      <tbody *ngFor="let o of oder; index as i">
+      <tr>
+        <td class="cart_product_img">
+          <span>{{this.usertoken.username}}</span>
+        </td>
+        <td class="cart_product_desc">
+          <h5>{{o.adress}}</h5>
+        </td>
+        <td class="price">
+          <span>{{o.priceAll}}</span>
+        </td>
+        <td class="price">
+          <span>{{o.date}}</span>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger" >Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
   </div>
+
 </div>
 <!-- ##### Main Content Wrapper End ##### -->
 
@@ -198,16 +144,15 @@
         <div class="single_widget_area">
           <!-- Logo -->
           <div class="footer-logo mr-50">
-            <a href="index.html"><img src="img/core-img/logo2.png" alt=""></a>
+            <a href="index.html"><img src="assets/img/core-img/logo2.png" alt=""></a>
           </div>
           <!-- Copywrite Text -->
           <p class="copywrite"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             Copyright &copy;<script>document.write(new Date().getFullYear());</script>
             All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
-              href="https://colorlib.com" target="_blank">Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->& Re-distributed by <a
+              href="https://colorlib.com" target="_blank">Colorlib</a> & Re-distributed by <a
               href="https://themewagon.com/" target="_blank">Themewagon</a>
-          </p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
         </div>
       </div>
       <!-- Single Widget Area -->
@@ -245,4 +190,4 @@
     </div>
   </div>
 </footer>
-<!-- ##### Footer Area End ##### -->
+

@@ -8,7 +8,7 @@
     <div class="row">
       <div class="col-12">
         <div class="search-content">
-          <form action="#" method="get">
+          <form action="search" method="get">
             <input type="search" name="search" id="search" placeholder="Type your keyword...">
             <button type="submit"><img src="assets/img/core-img/search.png" alt=""></button>
           </form>
@@ -48,9 +48,9 @@
     <nav class="amado-nav">
       <ul>
         <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="product-details.html" >Product</a></li>
-        <li><a [routerLink]="'/showcart/'">Cart</a></li>
+        <li><a [routerLink]="'/shop/'">Shop</a></li>
+<!--        <li><a href="product-details.html" >Product</a></li>-->
+        <li><a [routerLink]="'/showcart'">Cart</a></li>
         <li><a href="checkout.html">Checkout</a></li>
       </ul>
     </nav>
@@ -63,7 +63,7 @@
     <div class="cart-fav-search mb-100">
       <a href="cart.html" class="cart-nav"><img src="assets/img/core-img/cart.png" alt=""> Cart <span>(0)</span></a>
       <a href="#" class="fav-nav"><img src="assets/img/core-img/favorites.png" alt=""> Favourite</a>
-      <a href="#" class="search-nav"><img src="assets/img/core-img/search.png" alt=""> Search</a>
+      <a href="search" class="search-nav"><img src="assets/img/core-img/search.png" alt=""> Search</a>
     </div>
     <!-- Social Button -->
     <div class="social-info d-flex justify-content-between">
@@ -72,6 +72,31 @@
       <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
       <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
     </div>
+    <script>
+      $(document).ready(function () {
+        // Activate tooltip
+        $('[data-toggle="tooltip"]').tooltip();
+
+        // Select/Deselect checkboxes
+        var checkbox = $('table tbody input[type="checkbox"]');
+        $("#selectAll").click(function () {
+          if (this.checked) {
+            checkbox.each(function () {
+              this.checked = true;
+            });
+          } else {
+            checkbox.each(function () {
+              this.checked = false;
+            });
+          }
+        });
+        checkbox.click(function () {
+          if (!this.checked) {
+            $("#selectAll").prop("checked", false);
+          }
+        });
+      });
+    </script>
   </header>
   <!-- Header Area End -->
 
