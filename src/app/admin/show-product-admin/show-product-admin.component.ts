@@ -16,6 +16,8 @@ export class ShowProductAdminComponent implements OnInit {
   }
 
   products: Product[] = [];
+  formCreate!: FormGroup;
+  product: Product = new Product(0, "", "", 0, 0, true, "", 0);
   catagories: Catagorie[] = [];
   page: number = 1
 
@@ -51,6 +53,22 @@ export class ShowProductAdminComponent implements OnInit {
     this.productService.findByIdS(searchform).subscribe((data) => {
       this.products = data;
     })
+  }
 
+  delete(id: number) {
+    this.productService.delete(id);
+  }
+
+  showEdit(product: Product) {
+    this.product = new Product(product.id, product.nameSt, product.img, product.price, product.quantity, product.status, product.description, product.amount);
+  }
+
+  edit(formEdit: any){
+    console.log(formEdit)
+    this.productService.create(formEdit);
+  }
+  create() {
+    console.log(this.formCreate)
+    this.productService.create(this.formCreate.value);
   }
 }

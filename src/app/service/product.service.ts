@@ -8,6 +8,8 @@ import {Product} from "../model/Product";
 })
 export class ProductService {
 
+  products: Product[]=[]
+
   constructor(private http: HttpClient) {
   }
 
@@ -31,6 +33,27 @@ export class ProductService {
     return this.http.get<Product[]>("http://localhost:8083/products/editproduct/" + id);
   }
 
+  create(product: Product){
+    let check=true;
 
+    for (let i = 0; i < this.products.length; i++) {
+      if (this.products[i].id === product.id) {
+        this.products[i] = product;
+        check = false;
+      }
+    }
+
+    if (check){
+      this.products.push(product);
+    }
+  }
+
+  delete(id: number): void {
+    for (let i = 0; i < this.products.length; i++) {
+      if (id === this.products[i].id) {
+        this.products.splice(i, 1);
+      }
+    }
+  }
 }
 

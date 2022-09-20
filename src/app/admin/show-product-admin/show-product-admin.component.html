@@ -17,7 +17,7 @@
   </div>
 </div>
 <!-- Search Wrapper Area End -->
-<form [formGroup]="searchForm" (ngSubmit)="search()" >
+<form [formGroup]="searchForm" (ngSubmit)="search()">
   <div class="row">
     <div class="col-md-4 col-sm-6">
       <div class="form-group">
@@ -162,7 +162,9 @@
 
       <div class="widget-desc">
         <div class="slider-range">
-          <div data-min="10" data-max="1000" data-unit="$" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="10" data-value-max="1000" data-label-result="">
+          <div data-min="10" data-max="1000" data-unit="$"
+               class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"
+               data-value-min="10" data-value-max="1000" data-label-result="">
             <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
             <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
             <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
@@ -190,17 +192,19 @@
             <!-- Sorting -->
             <div class="product-sorting d-flex">
               <div class="sort-by-date d-flex align-items-center mr-15">
-                <button type="button" class="btn btn-primary">Thêm</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create">
+                  Add Product
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="row" >
+      <div class="row">
 
         <!-- Single Product Area -->
-        <div class="col-12 col-sm-6 col-md-12 col-xl-6"*ngFor="let p of products" >
+        <div class="col-12 col-sm-6 col-md-12 col-xl-6" *ngFor="let p of products">
           <div class="single-product-wrapper">
             Product Image
             <div class="product-img">
@@ -215,11 +219,12 @@
                 <div class="line"></div>
                 <p class="product-price">{{p.price}} VND</p>
                 <a href="product-details.html">
-                  <h6>{{p.nameSt}}</h6>
                   <h3>{{p.nameSt}}</h3>
                 </a>
               </div>
-              Ratings & Cart
+              <!--              <h6>{{p.status}}</h6>-->
+              <td *ngIf="p.status=== true" style="color: chartreuse">Full</td>
+              <td *ngIf="p.status=== false" style="color: red">Empty</td>
               <div class="ratings-cart text-right">
                 <div class="ratings">
                   <i class="fa fa-star" aria-hidden="true"></i>
@@ -229,9 +234,11 @@
                   <i class="fa fa-star" aria-hidden="true"></i>
                 </div>
                 <div class="cart">
-<!--                  <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="assets/img/core-img/cart.png" alt=""></a>-->
-                  <button type="button" class="btn btn-success">Chỉnh Sửa</button>
-                  <button type="button" class="btn btn-danger">Xóa</button>
+                  <!--                  <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="assets/img/core-img/cart.png" alt=""></a>-->
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edit"
+                          (click)="showEdit(p)">Edit
+                  </button>
+                  <button type="button" class="btn btn-danger" (click)="delete(p.id)">Delete</button>
                 </div>
               </div>
             </div>
@@ -246,9 +253,9 @@
           <nav aria-label="navigation">
 
             <ul class="pagination justify-content-end mt-50">
-              <li  class="page-item active"><a  class="page-link" (click)="findPage(1)">01.</a></li>
-              <li  class="page-item active"><a  class="page-link"(click)="findPage(2)" >02.</a></li>
-              <li  class="page-item active"><a  class="page-link"(click)="findPage(3)">03.</a></li>
+              <li class="page-item active"><a class="page-link" (click)="findPage(1)">01.</a></li>
+              <li class="page-item active"><a class="page-link" (click)="findPage(2)">02.</a></li>
+              <li class="page-item active"><a class="page-link" (click)="findPage(3)">03.</a></li>
             </ul>
           </nav>
         </div>
@@ -267,7 +274,8 @@
       <div class="col-12 col-lg-6 col-xl-7">
         <div class="newsletter-text mb-100">
           <h2>Subscribe for a <span>25% Discount</span></h2>
-          <p>Nulla ac convallis lorem, eget euismod nisl. Donec in libero sit amet mi vulputate consectetur. Donec auctor interdum purus, ac finibus massa bibendum nec.</p>
+          <p>Nulla ac convallis lorem, eget euismod nisl. Donec in libero sit amet mi vulputate consectetur. Donec
+            auctor interdum purus, ac finibus massa bibendum nec.</p>
         </div>
       </div>
       <!-- Newsletter Form -->
@@ -297,7 +305,10 @@
           </div>
           <!-- Copywrite Text -->
           <p class="copywrite"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> & Re-distributed by <a href="https://themewagon.com/" target="_blank">Themewagon</a>
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+            All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
+              href="https://colorlib.com" target="_blank">Colorlib</a> & Re-distributed by <a
+              href="https://themewagon.com/" target="_blank">Themewagon</a>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
         </div>
       </div>
@@ -307,7 +318,9 @@
           <!-- Footer Menu -->
           <div class="footer_menu">
             <nav class="navbar navbar-expand-lg justify-content-end">
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#footerNavContent" aria-controls="footerNavContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#footerNavContent"
+                      aria-controls="footerNavContent" aria-expanded="false" aria-label="Toggle navigation"><i
+                class="fa fa-bars"></i></button>
               <div class="collapse navbar-collapse" id="footerNavContent">
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item active">
@@ -338,7 +351,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1>Find the job that fits your life</h1><br><h2>More than <strong>12,000</strong> jobs are waiting to Kickstart your career!</h2>
+        <h1>Find the job that fits your life</h1><br>
+        <h2>More than <strong>12,000</strong> jobs are waiting to Kickstart your career!</h2>
         <div class="content">
 
         </div>
@@ -349,6 +363,132 @@
           <a href="#">Programming</a>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- Button to Open the Modal -->
+
+<!-- The Modal -->
+<div class="modal" id="create">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Product</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form (ngSubmit)="create()" [formGroup]="formCreate" >
+          Input id
+          <input formControlName="id"><br>
+
+          Input name
+          <input formControlName="nameSt"><br>
+          <br>
+          <p *ngIf="!name.valid && name.touched" style="color: red">* không được nhập dưới 1 ký tự</p>
+          <br>
+
+          Input image
+          <input formControlName="img"><br>
+          <br>
+          <p *ngIf="!img.valid" style="color: red">* không được để trống</p>
+          <br>
+
+          Input price
+          <input formControlName="price"><br>
+          <br>
+          <p *ngIf="!price.valid" style="color: red">* không được nhở hơn không</p>
+          <br>
+
+          Input quantity
+          <input formControlName="quantity"><br>
+          <br>
+          <p *ngIf="!quantity.valid" style="color: red">* không được nhở hơn không</p>
+          <br>
+
+          Input status
+          <input formControlName="status"><br>
+          Input description
+          <input formControlName="description">
+          Input amount
+          <input formControlName="amount">
+
+          <button type="submit" class="btn btn-success">Save</button>
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <!--        <button type="button" class="btn btn-success" data-dismiss="modal" (click)="edit(product)">Save</button>-->
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="edit">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Product</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form #formEdit="ngForm"(ngSubmit)="edit(formEdit.value)" >
+          Input id
+          <input [(ngModel)]="product.id" name="id"><br>
+
+          Input name
+          <input [(ngModel)]="product.nameSt" name="nameSt" #name="ngModel" minlength="1"><br>
+          <br>
+          <p *ngIf="!name.valid && name.touched" style="color: red">* không được nhập dưới 1 ký tự</p>
+          <br>
+
+          Input image
+          <input [(ngModel)]="product.img" name="img" #img="ngModel" required><br>
+          <br>
+          <p *ngIf="!img.valid" style="color: red">* không được để trống</p>
+          <br>
+
+          Input price
+          <input [(ngModel)]="product.price" name="price" #price="ngModel" min="10"><br>
+          <br>
+          <p *ngIf="!price.valid" style="color: red">* không được nhở hơn không</p>
+          <br>
+
+          Input quantity
+          <input [(ngModel)]="product.quantity" name="quantity" #quantity="ngModel" min="10"><br>
+          <br>
+          <p *ngIf="!quantity.valid" style="color: red">* không được nhở hơn không</p>
+          <br>
+
+          Input status
+          <input [(ngModel)]="product.status" name="status"><br>
+          Input description
+          <input [(ngModel)]="product.description" name="description"><br>
+          Input amount
+          <input [(ngModel)]="product.amount"><br>
+
+          <button type="submit" class="btn btn-success">Save</button>
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+<!--        <button type="button" class="btn btn-success" data-dismiss="modal" (click)="edit(product)">Save</button>-->
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
     </div>
   </div>
 </div>
